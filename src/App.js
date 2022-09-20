@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
+import { DataContext } from './context/DataContext' 
 import './App.css'
 
 // function App (){}
@@ -37,7 +38,10 @@ const App = () => {
       <div>
           <h1 className='App'>{message}</h1>
           <SearchBar handleSearch={handleSearch} />
-          <Gallery data={data} />
+          {message}
+          <DataContext.Provider value={data} >
+            <Gallery />
+          </DataContext.Provider>
       </div>
   )
 }
